@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Go - Go Sikho</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header -->
+        <div class="game-header">
+            <button onclick="window.location.href='index.html'" class="back-btn">← Back</button>
+            <h2>🎮 Play Go</h2>
+            <select id="boardSize" onchange="changeBoardSize()">
+                <option value="9">9x9 (Beginner)</option>
+                <option value="13">13x13 (Intermediate)</option>
+                <option value="19">19x19 (Advanced)</option>
+            </select>
+        </div>
+
+        <!-- Game Info -->
+        <div class="game-info">
+            <div class="player-turn" id="currentPlayer">
+                ⚫ Black's Turn
+            </div>
+            <div class="captured-stones">
+                <span>Captured: ⚫ <span id="blackCaptured">0</span> | ⚪ <span id="whiteCaptured">0</span></span>
+            </div>
+        </div>
+
+        <!-- Game Board -->
+        <div class="board-container">
+            <canvas id="goBoard" width="400" height="400"></canvas>
+        </div>
+
+        <!-- Game Controls -->
+        <div class="game-controls">
+            <button class="btn" onclick="pass()">Pass</button>
+            <button class="btn" onclick="calculateScore()">Score</button>
+            <button class="btn" onclick="resetGame()">New Game</button>
+            <button class="btn" onclick="undo()">Undo</button>
+        </div>
+
+        <!-- Game Mode -->
+        <div class="game-mode">
+            <label>
+                <input type="radio" name="gameMode" value="vsAI" checked onchange="changeGameMode()"> vs AI
+            </label>
+            <label>
+                <input type="radio" name="gameMode" value="2player" onchange="changeGameMode()"> 2 Players
+            </label>
+            <label>
+                <input type="checkbox" id="aiFirst"> AI plays first
+            </label>
+        </div>
+
+        <!-- Message Area -->
+        <div id="message" class="message"></div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ai.js"></script>
+    <script>
+        // Initialize game when page loads
+        window.onload = function() {
+            initGame();
+        };
+    </script>
+</body>
+</html>
