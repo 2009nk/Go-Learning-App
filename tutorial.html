@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Go - Go Sikho</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="tutorial-container">
+        <!-- Header -->
+        <div class="tutorial-header">
+            <button onclick="window.location.href='index.html'" class="back-btn">← Back</button>
+            <h2>📚 Learn Go Step by Step</h2>
+        </div>
+
+        <!-- Tutorial List -->
+        <div class="tutorial-list" id="tutorialList">
+            <!-- Tutorials will be loaded here by JavaScript -->
+        </div>
+
+        <!-- Active Tutorial (Hidden by default) -->
+        <div id="activeTutorial" class="active-tutorial" style="display: none;">
+            <div class="tutorial-progress">
+                <span id="tutorialTitle"></span>
+                <span id="stepCounter">Step 1/5</span>
+            </div>
+            
+            <div class="tutorial-board-container">
+                <canvas id="tutorialBoard" width="300" height="300"></canvas>
+            </div>
+            
+            <div class="tutorial-instruction" id="tutorialInstruction">
+                Click on the board to make your move...
+            </div>
+            
+            <div class="tutorial-controls">
+                <button class="btn" onclick="previousStep()" id="prevBtn">← Previous</button>
+                <button class="btn" onclick="nextStep()" id="nextBtn">Next →</button>
+                <button class="btn" onclick="exitTutorial()">Exit Tutorial</button>
+            </div>
+            
+            <div id="tutorialFeedback" class="tutorial-feedback"></div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/tutorial.js"></script>
+</body>
+</html>
