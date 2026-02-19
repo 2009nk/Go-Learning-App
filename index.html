@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Sikho - Learn Go/Weiqi/Baduk</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🎯 Go Sikho</h1>
+            <p>Learn the ancient game of Go in a fun way!</p>
+        </header>
+
+        <!-- Main Menu -->
+        <div class="menu-grid">
+            <!-- Play Card -->
+            <div class="card" onclick="window.location.href='game.html'">
+                <div class="card-icon">🎮</div>
+                <h2>Play Game</h2>
+                <p>Play against AI or with a friend</p>
+                <div class="card-badge">9x9 | 13x13</div>
+            </div>
+
+            <!-- Tutorial Card -->
+            <div class="card" onclick="window.location.href='tutorial.html'">
+                <div class="card-icon">📚</div>
+                <h2>Learn Basics</h2>
+                <p>Step by step tutorials for beginners</p>
+                <div class="card-badge">5 Lessons</div>
+            </div>
+
+            <!-- Puzzles Card -->
+            <div class="card" onclick="startPuzzles()">
+                <div class="card-icon">🧩</div>
+                <h2>Practice Puzzles</h2>
+                <p>Solve Go problems and improve</p>
+                <div class="card-badge">20+ Puzzles</div>
+            </div>
+
+            <!-- Rules Card -->
+            <div class="card" onclick="showRules()">
+                <div class="card-icon">📖</div>
+                <h2>Rules</h2>
+                <p>Quick guide to Go rules</p>
+                <div class="card-badge">Beginner Guide</div>
+            </div>
+        </div>
+
+        <!-- Progress Section -->
+        <div class="progress-section">
+            <h3>Your Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 30%">30%</div>
+            </div>
+            <div class="stats">
+                <span>⭐ Level: Beginner 2</span>
+                <span>🏆 XP: 150/500</span>
+            </div>
+        </div>
+
+        <!-- Rules Modal (Hidden by default) -->
+        <div id="rulesModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeRules()">&times;</span>
+                <h2>Go Rules - Quick Guide</h2>
+                <div class="rules-list">
+                    <div class="rule-item">
+                        <h3>1. Liberties</h3>
+                        <p>Empty points adjacent to a stone are called "liberties". A stone needs at least one liberty to survive.</p>
+                    </div>
+                    <div class="rule-item">
+                        <h3>2. Capture</h3>
+                        <p>When a stone loses its last liberty, it is captured and removed from the board.</p>
+                    </div>
+                    <div class="rule-item">
+                        <h3>3. Ko Rule</h3>
+                        <p>You cannot repeat the same board position immediately.</p>
+                    </div>
+                    <div class="rule-item">
+                        <h3>4. Territory</h3>
+                        <p>The goal is to surround more empty area than your opponent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script>
+        function showRules() {
+            document.getElementById('rulesModal').style.display = 'block';
+        }
+
+        function closeRules() {
+            document.getElementById('rulesModal').style.display = 'none';
+        }
+
+        function startPuzzles() {
+            alert('Puzzles mode coming soon! Practice with tutorials first.');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('rulesModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
